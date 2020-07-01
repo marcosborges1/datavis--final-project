@@ -1,0 +1,14 @@
+{
+  "name": "@marcosborges1/circle",
+  "main": "99d171509c4220c0@2108.js",
+  "version": "2108.0.0",
+  "homepage": "https://observablehq.com/@marcosborges1/circle",
+  "author": {
+    "name": "marcosborges1",
+    "url": "https://observablehq.com/@marcosborges1"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

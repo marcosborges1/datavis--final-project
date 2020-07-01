@@ -1,0 +1,33 @@
+#mapid {
+  height:400px;
+  background: #F5F5F5;
+}
+.container {
+  
+}
+.bubble {
+  fill: #e24d61;
+}
+.bubble2 {
+  fill:brown;
+}
+.bubble3 {
+  fill:#3780ce;
+}
+.bubble4 {
+  fill:#d89ef7;
+}
+.bubble5 {
+  fill:#90cc4b;
+}
+.spinner-border {
+
+    background:url("../images/app/loading.gif");
+}
+
+.spinner-loading {
+
+  width:50px;
+  margin-left: 50%;
+  display: none;
+}
