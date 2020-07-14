@@ -73,9 +73,9 @@ function updateScatterDonut(data) {
     // scatteroplot
     const scatterChart = new dc.ScatterPlot(document.querySelector("#scatter-chart-area"))
     scatterChart
-        .width(620)
-        .height(400)
-        .margins({left:20, right:0, top:20, bottom:20 })
+        .width($("#scatter-chart-area").width()) // 600
+        .height(350) //400
+        .margins({left:40, right:0, top:20, bottom:20 })
         .x(x)
         .brushOn(false)
         .symbolSize(6)
@@ -95,8 +95,8 @@ function updateScatterDonut(data) {
     // donut chart
     const pieChart = new dc.PieChart(document.querySelector("#donut-chart-area"))
     pieChart
-        .width(300)
-        .height(200)
+        .width($("#donut-chart-area").width()) //300
+        .height(240)
         .slicesCap(4)
         .innerRadius(80)
         .externalLabels(50)

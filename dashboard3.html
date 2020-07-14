@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>WineVIS Dashboard 2</title>
+    <title>WineVIS Dashboard 3</title>
     <meta name="description" content="Website created as part of the final work of the UFC Scientific Visualization course">
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,8 +20,7 @@
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <!-- D3 Tooltip CSS -->
     <link rel="stylesheet" href="styles/gabriela/d3-tip.css">
-    <!-- DC CSS -->
-    <link rel="stylesheet" href="styles/gabriela/dc-scatterpie.css">
+    <link rel="stylesheet" href="styles/gabriela/dc-barline.css">
     <link href="styles/my_style.css" rel="stylesheet" type="text/css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="scripts/app/MyUtils.js"></script>
@@ -71,13 +70,13 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard2" class="nav-link active" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
+                  <a id="dashboard2" class="nav-link" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
                     <i class="material-icons">view_module</i>
                     <span>Dashboard 2</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard3" class="nav-link" title="Dashboard 3" href="/datavis--final-project/dashboard3.html">
+                  <a id="dashboard3" class="nav-link active" title="Dashboard 3" href="/datavis--final-project/dashboard3.html">
                     <i class="material-icons">view_module</i>
                     <span>Dashboard 3</span>
                   </a>
@@ -157,47 +156,71 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Dashboard</span>
-                <h3 class="page-title">Price x Score</h3>
+                <h3 class="page-title">Average Score</h3>
               </div>
             </div>
             
 
             <div class="row">
               <!-- Users Stats -->
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-12 d-flex justify-content-center">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-12 d-flex justify-content-center">
                 <div class="card card-small">
-                  <div class="card-header border-bottom information_hightlight">
-                    <h6 class="m-0">
-                        <i class="fas fa-info-circle"></i>
-                        Information</h6>
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0 d-flex justify-content-center">
+                        <i class="fas fa-info-circle color_wine" style="font-size: 30px;"></i>
+                        <!-- <i class="fas fa-info-circle"></i> Information -->
+                    </h6>
                   </div>
-                  <div class="card-body text_piechart align-self-center">
-
-                      There is almost 130 thousand wine titles, tasted and rated by 19 specialized tasters. We found a clear correlation between the price and the score points of the titles. You can mouse over the dots in our scatter plot to see a title with that specific pair of score and price.
+                  <div class="card-body  text_piechart text-justify">
+                      We showcase you the average rating points of the main regions, countries and varieties, considering the titles from 1997 to 2016. You can select a category using our dropdown button on the top. Click on a bar to see the average score behavior through time filtered by the selection.
                       <br/>
                       <br/>
-                      As one would expect, most of the wine production is red, followed by white and rosè. Click on a type in our donut chart, so you can filter the titles from that type alone in our scatter plot.
-
+                      The scoring process consider many of the wine’s properties, like its color and appearance, aroma, flavor, finish, and overall quality.
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-12">
+              <div class="col-lg-9 col-md-6 col-sm-12 mb-12" id="x">
                 <div class="card card-small">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Type distribution</h6>
+                    <!-- <select id="category-select" class="form-control">
+                        <option selected value="region_1">Region</option>
+                        <option value="country">Country</option>
+                        <option value="variety">Variety</option>
+                    </select> -->
                   </div>
-                  <div class="card-body pt-0 d-flex justify-content-center" id="donut-chart-area" style="margin-top:10px;">
+
+                  <div class="card-body pt-0">
+                    <div class="row border-bottom py-2 bg-light">
+                      <div class="col-12 col-sm-6">
+                        <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
+                          <select class="custom-select custom-select-sm" id="category-select" style="max-width: 130px;">
+                            <option selected value="region_1">Region</option>
+                            <option value="country">Country</option>
+                            <option value="variety">Variety</option>
+                          </select>
+                          <span class="input-group-append">
+                            <span class="input-group-text">
+                              <i class="far fa-hand-pointer"></i>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pt-0 d-flex justify-content-center" id="chart-bar">
                       <div class="spinner-border text-danger align-self-center">
                       
                       </div>
                   </div>
                 </div>
+                 
               </div>
             </div>
 
             
 
-            <div class="row" style="margin-top: 10px;">
+            <div class="row" style="margin-top: 10px;margin-bottom: 10px;">
               <!-- Users Stats -->
               <div class="col-lg-12 col-md-12 col-sm-12 mb-12">
                 <div class="card card-small">
@@ -206,7 +229,7 @@
                       Wine title’s distribution according to price and score
                     </h6>
                   </div>
-                  <div class="card-body pt-0 d-flex justify-content-center" id="scatter-chart-area">
+                  <div class="card-body d-flex justify-content-center" id="chart-line">
                     <div class="spinner-border text-danger align-self-center">
                       
                     </div>
@@ -216,9 +239,6 @@
               </div>
             </div>
 
-            
-            
-            </div>
           </div>
           <div data-includeHTML="html_subparts/footer.html"></div>
         </main>
@@ -237,7 +257,8 @@
     <script src="scripts/gabriela/d3-tip.js"></script>
     <script src="scripts/gabriela/crossfilter.js"></script>
     <script src="scripts/gabriela/dc.js"></script>
+
     <!-- Custom JS -->
-    <script src="scripts/gabriela/main.js"></script>
+    <script src="scripts/gabriela/main_bar_chart.js"></script>
   </body>
 </html>

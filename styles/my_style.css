@@ -1,6 +1,5 @@
 #mapid {
   height:400px;
-  background: #F5F5F5;
 }
 .container {
   
@@ -34,4 +33,18 @@
 .spinner-border {
 
   background: #fff;
+}
+.information_hightlight {
+
+  background: #fcf9e5;
+  
+}
+.color_wine, .information_history {
+  color:#d60a5f;
+}
+.absolute_spinner {
+
+  position: absolute;
+  left:50%;
+
 }

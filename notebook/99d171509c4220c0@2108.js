@@ -64,7 +64,7 @@ readPercentageVariey()
     // console.log(total)
     tableChart.width(width)
             .height(800)
-            .group(d=>`Total number of varieties found:`+ varietyCountryGroup.all().reduce((a, b) => a + (b["value"] || 0), 0))
+            .group(d=>`Total number of varieties found: <b>`+ varietyCountryGroup.all().reduce((a, b) => a + (b["value"] || 0), 0)+`</b>`)
             .dimension(varietyCountryGroup)
             .size(sizeTable)
             .columns([{ label: `Variety`,'format': (d) => d.key[1] } ,
@@ -223,7 +223,7 @@ varietyCountryDimension.group()
 {
     
     let markers = d3.map();
-    countryGroup.reduceCount().top(15).forEach( function(d) {
+    countryGroup.reduceCount().top(20).forEach( function(d) {
          
       const country = countryJson.find(c=>c.name === d.key) 
       // console.log(d.value)
@@ -254,19 +254,21 @@ varietyCountryDimension.group()
 );
   main.variable(observer("updateCountrySelected")).define("updateCountrySelected", ["$"], function($){return(
 function updateCountrySelected(nameCountry) {
-    $("#country").html("Overview Varieties: " + nameCountry)
+    $("#country").html("Varieties Overview: " + nameCountry)
 }
 )});
   main.variable(observer("circleScale")).define("circleScale", ["d3"], function(d3){return(
 d3.scaleLinear()
-             .domain([0, 882])
-             .range([100000, 500000])
+             .domain([0, 90000])
+             .range([100000, 1000000])
 )});
   main.variable(observer("updateMarkers")).define("updateMarkers", ["countryGroup","circles","layerList","map","L"], function(countryGroup,circles,layerList,map,L){return(
 function updateMarkers(){
     
   // console.log(countryDimension.group().reduceCount().top(15));
-    let ids = countryGroup.reduceCount().top(15)
+
+    // let ids = countryGroup.reduceCount().top(20)
+    let ids = countryGroup.reduceCount().top(20)
     let todisplay = new Array(ids.length) //preallocate array to be faster
     let mc = 0; //counter of used positions in the array
     for (let i = 0; i < ids.length; i++) {
@@ -290,7 +292,8 @@ function updateMarkers(){
 []
 )});
   main.variable(observer("dataset")).define("dataset", ["d3"], function(d3){return(
-d3.csv("https://gist.githubusercontent.com/marcosborges1/8fb2dd913138676f061ae6ff5a597b4d/raw/ea47d7a4491da467b716d66f4aa3d9b3676c344f/winemag-data-v.csv")
+// d3.csv("https://gist.githubusercontent.com/marcosborges1/8fb2dd913138676f061ae6ff5a597b4d/raw/ea47d7a4491da467b716d66f4aa3d9b3676c344f/winemag-data-v.csv")
+d3.tsv("data/data.csv")
 )});
   main.variable(observer("getClasseByCount")).define("getClasseByCount", ["readPercentageVariey"], function(readPercentageVariey){return(
 (valueCount) => {

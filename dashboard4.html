@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>WineVIS Dashboard 2</title>
+    <title>WineVIS Dashboard 4</title>
     <meta name="description" content="Website created as part of the final work of the UFC Scientific Visualization course">
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,8 +20,7 @@
     <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
     <!-- D3 Tooltip CSS -->
     <link rel="stylesheet" href="styles/gabriela/d3-tip.css">
-    <!-- DC CSS -->
-    <link rel="stylesheet" href="styles/gabriela/dc-scatterpie.css">
+    <link rel="stylesheet" href="styles/gabriela/dc-barline.css">
     <link href="styles/my_style.css" rel="stylesheet" type="text/css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="scripts/app/MyUtils.js"></script>
@@ -71,7 +70,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard2" class="nav-link active" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
+                  <a id="dashboard2" class="nav-link" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
                     <i class="material-icons">view_module</i>
                     <span>Dashboard 2</span>
                   </a>
@@ -83,7 +82,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard3" class="nav-link" title="Dashboard 4" href="/datavis--final-project/dashboard4.html">
+                  <a id="dashboard3" class="nav-link active" title="Dashboard 4" href="/datavis--final-project/dashboard4.html">
                     <i class="material-icons">view_module</i>
                     <span>Dashboard 4</span>
                   </a>
@@ -157,68 +156,48 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Dashboard</span>
-                <h3 class="page-title">Price x Score</h3>
+                <h3 class="page-title">Word Cloud</h3>
               </div>
             </div>
             
 
             <div class="row">
               <!-- Users Stats -->
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-12 d-flex justify-content-center">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-12 d-flex justify-content-center">
                 <div class="card card-small">
-                  <div class="card-header border-bottom information_hightlight">
-                    <h6 class="m-0">
-                        <i class="fas fa-info-circle"></i>
-                        Information</h6>
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0 d-flex justify-content-center">
+                        <i class="fas fa-info-circle color_wine" style="font-size: 30px;"></i>
+                        <!-- <i class="fas fa-info-circle"></i> Information -->
+                    </h6>
                   </div>
-                  <div class="card-body text_piechart align-self-center">
-
-                      There is almost 130 thousand wine titles, tasted and rated by 19 specialized tasters. We found a clear correlation between the price and the score points of the titles. You can mouse over the dots in our scatter plot to see a title with that specific pair of score and price.
-                      <br/>
-                      <br/>
-                      As one would expect, most of the wine production is red, followed by white and rosè. Click on a type in our donut chart, so you can filter the titles from that type alone in our scatter plot.
-
+                  <div class="card-body  text_piechart text-justify">
+                      Have you ever noticed how some words are frequently used to describe the flavor of numerous wines? Here we have the most repeatedly used words by the tasters to describe the titles in our dataset. We considered only descriptions from the the main varieties: Pinot Noir, Chardonnay, Cabernet Sauvignon, Syrah, Sauvignon Blanc, Merlot, Nebbiolo, Zinfandel, Sangiovese, and Malbec.
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-12">
+              <div class="col-lg-9 col-md-9 col-sm-12 mb-12" id="x">
                 <div class="card card-small">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">Type distribution</h6>
+                    <h6 class="m-0">Most frequently used words to describe main varieties</h6>
+                    <!-- <select id="category-select" class="form-control">
+                        <option selected value="region_1">Region</option>
+                        <option value="country">Country</option>
+                        <option value="variety">Variety</option>
+                    </select> -->
                   </div>
-                  <div class="card-body pt-0 d-flex justify-content-center" id="donut-chart-area" style="margin-top:10px;">
+
+                  <div class="card-body d-flex justify-content-center" id="chart">
                       <div class="spinner-border text-danger align-self-center">
                       
                       </div>
                   </div>
                 </div>
+                 
               </div>
             </div>
 
-            
 
-            <div class="row" style="margin-top: 10px;">
-              <!-- Users Stats -->
-              <div class="col-lg-12 col-md-12 col-sm-12 mb-12">
-                <div class="card card-small">
-                  <div class="card-header border-bottom">
-                    <h6 class="m-0">
-                      Wine title’s distribution according to price and score
-                    </h6>
-                  </div>
-                  <div class="card-body pt-0 d-flex justify-content-center" id="scatter-chart-area">
-                    <div class="spinner-border text-danger align-self-center">
-                      
-                    </div>
-                      <!-- <img class="spinner-loading" src="images/app/loading.gif"> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            
-            
-            </div>
           </div>
           <div data-includeHTML="html_subparts/footer.html"></div>
         </main>
@@ -232,12 +211,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="scripts/extras.1.1.0.min.js"></script>
     <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
-
-    <script src="scripts/gabriela/d3.min.js"></script>
     <script src="scripts/gabriela/d3-tip.js"></script>
     <script src="scripts/gabriela/crossfilter.js"></script>
     <script src="scripts/gabriela/dc.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="scripts/gabriela/cloud.js"></script>
+
     <!-- Custom JS -->
-    <script src="scripts/gabriela/main.js"></script>
+    <script src="scripts/gabriela/main_cloud.js"></script>
   </body>
 </html>
