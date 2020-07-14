@@ -17,6 +17,10 @@
     //
     //Configuration Marcos
     MyUtils.includeHTML()
+
+    $('.toggle-sidebar').click(function (e) {
+      $('.main-sidebar').toggleClass('open');
+    });
     //End Configuration Marcos
 
     // Datasets

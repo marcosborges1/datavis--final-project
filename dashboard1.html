@@ -1,0 +1,267 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>WineVIS Dashboard 1 - Map</title>
+    <meta name="description" content="Website created as part of the final work of the UFC Scientific Visualization course">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.css">
+    <link href="notebook/inspector.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <link href="styles/my_style.css" rel="stylesheet" type="text/css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="scripts/app/MyUtils.js"></script>
+  </head>
+  <body class="h-100">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+          <div class="main-navbar">
+            <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+              <a class="navbar-brand w-100 mr-0" href="/datavis--final-project/index.html" style="line-height: 25px;">
+                <div class="d-table m-auto">
+                  <!-- <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="images/shards-dashboards-logo.svg" alt="GoodReads Dashboard"> -->
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="/datavis--final-project/images/app/wine_bottle.png" alt="Wine Dashboard">
+                  <!-- <i class="fa fa-wine-glass">ad</i> -->
+                  <span class="d-none d-md-inline ml-1">WineVIS</span>
+                </div>
+              </a>
+              <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                <i class="material-icons">&#xE5C4;</i>
+              </a>
+            </nav>
+          </div>
+          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+          </form>
+          <!-- Add Menu -->
+            <div class="nav-wrapper">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a id="dashboard" class="nav-link" title="History" href="/datavis--final-project/index.html">
+                    <i class="material-icons">view_module</i>
+                    <span>Summary</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="dashboard" class="nav-link active" title="Dashboard" href="/datavis--final-project/dashboard1.html">
+                    <i class="material-icons">view_module</i>
+                    <span>Dashboard 1</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="dashboard2" class="nav-link" title="Dashboard" href="/datavis--final-project/dashboard2.html">
+                    <i class="material-icons">view_module</i>
+                    <span>Dashboard 2</span>
+                  </a>
+                </li>
+                 <li class="nav-item">
+                  <a id="dashboard3" class="nav-link" title="Dashboard" href="/datavis--final-project/dashboard3.html">
+                    <i class="material-icons">view_module</i>
+                    <span>Dashboard 3</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a id="authors" class="nav-link" title="Authors" href="/datavis--final-project/authors.html">
+                    <i class="material-icons">person</i>
+                    <span>Authors</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <!-- End Main Navbar -->
+
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          
+          <!-- Main Navbar -->
+          <!-- <div data-includeHTML="html_subparts/main_navbar.html"></div> -->
+          <!-- Main Navbar -->
+          <div class="main-navbar sticky-top bg-white">
+            <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                <div class="input-group input-group-seamless ml-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              </form>
+              <ul class="navbar-nav border-left flex-row ">
+                <li class="nav-item border-right dropdown notifications">
+                  <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="nav-link-icon__wrapper">
+                      <i class="material-icons">&#xE7F4;</i>
+                      <span class="badge badge-pill badge-warning">1</span>
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-item">
+                      <div class="notification__icon-wrapper">
+                        <div class="notification__icon">
+                          <i class="material-icons">bar_chart</i>
+                        </div>
+                      </div>
+                      <div class="notification__content">
+                        <span class="notification__category">Charts</span>
+                        <p>
+                          This website was created as part of the final work of the UFC Scientific Visualization course, taught by Professor <a href="https://emanueles.github.io" rel="nofollow">Emanuelle Santos</a>
+                          </p>
+                      </div>
+                    </div>
+                    <!-- <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a> -->
+                  </div>
+                </li>
+              </ul>
+              <nav class="nav">
+                <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left" data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
+                  <i class="material-icons">&#xE5D2;</i>
+                </a>
+              </nav>
+            </nav>
+          </div>
+          <!-- End Main Navbar -->
+
+          <div class="main-content-container container-fluid px-4">
+            
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Dashboard</span>
+                <h3 class="page-title">General Information</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            
+            <!-- Small Stats Blocks -->
+           
+            
+            <!-- End Small Stats Blocks -->
+            <div class="row">
+              <!-- Users Stats -->
+              <div class="col-lg-9 col-md-8 col-sm-12 mb-12">
+                <div class="card card-small">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Top 15 largest wine producers in the world.</h6>
+                  </div>
+                  <div class="card-body pt-0" id="mapid">
+                      <img class="spinner-loading" src="images/app/loading.gif">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-12 mb-12 justify-content-center">
+                <div class="card card-small d-flex align-self-center info_base">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Information 1</h6>
+                  </div>
+                  <div class="card-body pt-0">
+                      Of the 316 registered cases, 192 occurred between 2011 and 2017, corresponding to 60.7% of the total number of cases. Of these 192, 132 occurred between 2015 and 2016, corresponding to 68.75%. 
+                  </div>
+                </div>
+                <div class="card card-small info_base" style="margin-top: 5px;">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Information 2</h6>
+                  </div>
+                  <div class="card-body pt-0">
+                      Of the 316 registered cases, 192 occurred between 2011 and 2017, corresponding to 60.7% of the total number of cases. Of these 192, 132 occurred between 2015 and 2016, corresponding to 68.75%.
+                  </div>
+                </div>
+              </div>
+            </div>
+              <!-- End Users Stats -->
+              <!-- Users By Device Stats -->
+            <div class="row" style="margin-top: 20px;">
+              <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                  <div class="card card-small h-100">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0" id="country">Overview Varieties: World</h6>
+                    </div>
+                    <div class="card-body d-flex py-0" id='circles'>
+                        <img class="spinner-loading" src="images/app/loading.gif">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                  <div class="card card-small h-100">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Overview of the 4 main varieties and the rest</h6>
+                    </div>
+                    <div class="card-body p-0 pb-3">
+                        <table class="table table-hover mb-0" id="table-varieties">
+                          <img class="spinner-loading" src="images/app/loading.gif">
+                        </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-12 mb-12">
+                  <div class="card card-small info_base">
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Information</h6>
+                    </div>
+                    <div class="card-body pt-0">
+                        Of the 316 registered cases, 192 occurred between 2011 and 2017, corresponding to 60.7% of the total number of cases. Of these 192, 132 occurred between 2015 and 2016, adfad asds asdfads asd
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div data-includeHTML="html_subparts/footer.html"></div>
+        </main>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <script src="scripts/extras.1.1.0.min.js"></script>
+    <script src="scripts/app/app-blog-overview.1.1.0.js"></script>
+    <script type="module">
+      import {Runtime, Library, Inspector} from './notebook/runtime.js'
+      import notebook from './notebook/99d171509c4220c0@2108.js'
+
+      const modules = ['buildvis', 'circles']
+
+      $(".info_base").hide()
+      $(".info_base").fadeIn('slow')
+
+      const  runtime = new Runtime();
+      const main = runtime.module(notebook, name=> {
+        if(modules.includes(name)) {
+            return {
+                pending() { 
+                  console.log("Running " + name + "...")
+                  $('.spinner-loading').show();
+                },
+                fulfilled(value) { 
+                  console.log("Done " + name + "!")
+                  $('.spinner-loading').hide();
+                }
+              };
+        }
+        // if(name == "buildvis") {
+        //     return new Inspector(document.getElementById('buildvis'))
+        // }
+      })
+    </script>
+  </body>
+</html>
