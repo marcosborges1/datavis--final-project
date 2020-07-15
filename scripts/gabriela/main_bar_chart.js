@@ -174,7 +174,7 @@ function updateLine(data) {
     width = 940;
     //building chart
     const lineChart = dc.lineChart(document.querySelector("#chart-line"))
-    lineChart.width($("#chart-line").width())
+    lineChart.width($("#chart-line").width()-50)
         .height(height)
         .margins({top:10, right:20, bottom:20, left:25})
         .dimension(yearDimension)

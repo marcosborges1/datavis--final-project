@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>WineVIS Dashboard 3</title>
+    <title>WineVIS - Average Scores</title>
     <meta name="description" content="Website created as part of the final work of the UFC Scientific Visualization course">
     <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -66,25 +66,25 @@
                 <li class="nav-item">
                   <a id="dashboard" class="nav-link" title="Dashboard 1" href="/datavis--final-project/dashboard1.html">
                     <i class="material-icons">view_module</i>
-                    <span>Dashboard 1</span>
+                    <span>Global Distribution</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a id="dashboard2" class="nav-link" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
                     <i class="material-icons">view_module</i>
-                    <span>Dashboard 2</span>
+                    <span>Price x Score</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a id="dashboard3" class="nav-link active" title="Dashboard 3" href="/datavis--final-project/dashboard3.html">
                     <i class="material-icons">view_module</i>
-                    <span>Dashboard 3</span>
+                    <span>Average Scores</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard3" class="nav-link" title="Dashboard 4" href="/datavis--final-project/dashboard4.html">
+                  <a id="dashboard4" class="nav-link" title="Dashboard 4" href="/datavis--final-project/dashboard4.html">
                     <i class="material-icons">view_module</i>
-                    <span>Dashboard 4</span>
+                    <span>Word Cloud</span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -156,7 +156,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Dashboard</span>
-                <h3 class="page-title">Average Score</h3>
+                <h3 class="page-title">Average Scores</h3>
               </div>
             </div>
             
@@ -172,7 +172,7 @@
                     </h6>
                   </div>
                   <div class="card-body  text_piechart text-justify">
-                      We showcase you the average rating points of the main regions, countries and varieties, considering the titles from 1997 to 2016. You can select a category using our dropdown button on the top. Click on a bar to see the average score behavior through time filtered by the selection.
+                      We showcase the average rating points of the main regions, countries and varieties, considering the titles from 1997 to 2016. You can select a category using our dropdown button on the top. Click on a bar to see the average score behavior through time filtered by the selection.
                       <br/>
                       <br/>
                       The scoring process consider many of the wine’s properties, like its color and appearance, aroma, flavor, finish, and overall quality.
@@ -182,7 +182,7 @@
               <div class="col-lg-9 col-md-6 col-sm-12 mb-12" id="x">
                 <div class="card card-small">
                   <div class="card-header border-bottom">
-                    <h6 class="m-0">Type distribution</h6>
+                    <h6 class="m-0">Average points from selected category</h6>
                     <!-- <select id="category-select" class="form-control">
                         <option selected value="region_1">Region</option>
                         <option value="country">Country</option>
@@ -226,7 +226,7 @@
                 <div class="card card-small">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">
-                      Wine title’s distribution according to price and score
+                      Timeline behavior
                     </h6>
                   </div>
                   <div class="card-body d-flex justify-content-center" id="chart-line">
