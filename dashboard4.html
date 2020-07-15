@@ -54,7 +54,7 @@
               </div>
               <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
           </form>
-          <!-- Add Menu -->
+            <!-- Menu -->
             <div class="nav-wrapper">
               <ul class="nav flex-column">
                 <li class="nav-item">
@@ -64,25 +64,25 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard" class="nav-link" title="Dashboard 1" href="/datavis--final-project/dashboard1.html">
+                  <a id="dashboard" class="nav-link" title="Global Distribution" href="/datavis--final-project/dashboard1.html">
                     <i class="material-icons">view_module</i>
                     <span>Global Distribution</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard2" class="nav-link" title="Dashboard 2" href="/datavis--final-project/dashboard2.html">
+                  <a id="dashboard2" class="nav-link" title="Price x Score" href="/datavis--final-project/dashboard2.html">
                     <i class="material-icons">view_module</i>
                     <span>Price x Score</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard3" class="nav-link" title="Dashboard 3" href="/datavis--final-project/dashboard3.html">
+                  <a id="dashboard3" class="nav-link" title="Average Scores" href="/datavis--final-project/dashboard3.html">
                     <i class="material-icons">view_module</i>
                     <span>Average Scores</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a id="dashboard4" class="nav-link active" title="Dashboard 4" href="/datavis--final-project/dashboard4.html">
+                  <a id="dashboard3" class="nav-link active" title="Word Cloud" href="/datavis--final-project/dashboard4.html">
                     <i class="material-icons">view_module</i>
                     <span>Word Cloud</span>
                   </a>
@@ -95,6 +95,7 @@
                 </li>
               </ul>
             </div>
+            <!-- End Menu -->
           </div>
         </aside>
         <!-- End Main Navbar -->
@@ -161,23 +162,23 @@
             </div>
             
 
-            <div class="row">
+            <div class="row" style="margin-bottom: 10px;">
               <!-- Users Stats -->
-              <div class="col-lg-3 col-md-6 col-sm-12 mb-12 d-flex justify-content-center">
-                <div class="card card-small">
+              <div class="col-lg-3 col-md-6 col-sm-12 mb-12">
+                <div class="card card-small info_base">
                   <div class="card-header border-bottom">
                     <h6 class="m-0 d-flex justify-content-center">
-                        <i class="fas fa-info-circle color_wine" style="font-size: 30px;"></i>
+                        <i class="fas fa-info-circle color_wine" style="font-size: 24px;"></i>
                         <!-- <i class="fas fa-info-circle"></i> Information -->
                     </h6>
                   </div>
-                  <div class="card-body  text_piechart text-justify">
+                  <div class="card-body text_piechart text-justify">
                       Have you ever noticed how some words are frequently used to describe the flavor of numerous wines? Here we have the most repeatedly used words by the tasters to describe the titles in our dataset. We considered only descriptions from the the main varieties: Pinot Noir, Chardonnay, Cabernet Sauvignon, Syrah, Sauvignon Blanc, Merlot, Nebbiolo, Zinfandel, Sangiovese, and Malbec.
                   </div>
                 </div>
               </div>
               <div class="col-lg-9 col-md-9 col-sm-12 mb-12" id="x">
-                <div class="card card-small">
+                <div class="card card-small info_base">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Most frequently used words to describe main varieties</h6>
                     <!-- <select id="category-select" class="form-control">
@@ -219,5 +220,9 @@
 
     <!-- Custom JS -->
     <script src="scripts/gabriela/main_cloud.js"></script>
+    <script type="text/javascript">
+      $(".info_base").hide()
+      $(".info_base").fadeIn('slow')
+    </script>
   </body>
 </html>

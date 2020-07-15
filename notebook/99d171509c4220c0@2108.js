@@ -7,7 +7,7 @@ md`# Circle`
   main.variable(observer("map")).define("map", ["view","L"], function(view,L)
 {
   view;
-  let mapInstance = L.map('mapid').setView([-10,-55], 7)
+  let mapInstance = L.map('mapid').setView([11,-27], 7) //-10,-55
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/">OpenStreetMap</a>contributors',
         maxZoom: 2,
@@ -64,7 +64,7 @@ readPercentageVariey()
     // console.log(total)
     tableChart.width(width)
             .height(800)
-            .group(d=>`Total number of varieties found: <b>`+ varietyCountryGroup.all().reduce((a, b) => a + (b["value"] || 0), 0)+`</b>`)
+            .group(d=>`Total number of distinct varieties found: <b>`+ varietyCountryGroup.all().reduce((a, b) => a + (b["value"] || 0), 0)+`</b>`)
             .dimension(varietyCountryGroup)
             .size(sizeTable)
             .columns([{ label: `Variety`,'format': (d) => d.key[1] } ,

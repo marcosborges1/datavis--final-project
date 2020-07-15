@@ -11,6 +11,9 @@
   color:#d60a5f;
   font-size: 25px;
 }
+.carousel-indicators {
+  top:290px;
+}
 .carousel-indicators li {
   background: #d60a5f !important;
 }
